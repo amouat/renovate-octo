@@ -17,6 +17,7 @@ jobs:
       id-token: write # required for federation
       contents: write
 
+    steps:
     - name: Run Renovate
       uses: renovatebot/github-action@822441559e94f98b67b82d97ab89fe3003b0a247 # v44.2.0
       env:
