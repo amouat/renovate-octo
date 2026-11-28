@@ -1,4 +1,4 @@
-FROM cgr.dev/chainguard/go:latest-dev
+FROM cgr.dev/chainguard/go:latest-dev@sha256:53bdff221bd160dc7570641a5d7deda0f3bd9a475655e95161c2207750401cba
 
 WORKDIR /work
 
@@ -8,7 +8,7 @@ COPY internal /work/internal
 
 RUN CGO_ENABLED=0 go build -o hello ./cmd/server
 
-FROM cgr.dev/chainguard/static:latest
+FROM cgr.dev/chainguard/static:latest@sha256:599c3cd7597b84aa149c4282beecc8c6d4e1cb5c95dc8d982e70cd0a2a9147a2
 COPY --from=builder /work/hello /hello
 
 ENTRYPOINT ["/hello"]
